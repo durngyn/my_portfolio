@@ -2,6 +2,7 @@
 
 :root {
   --background: #ffffff;
+  overflow: hidden;
 
 }
 
@@ -15,7 +16,6 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 html,
@@ -24,25 +24,33 @@ body {
   font-size: 100%;
   line-height: 1;
   font-family: sans-serif;
+  box-sizing: border-box;
+
 }
 
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
+summary,
+div {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-button,
-input,
-select,
-textarea {
-  font: inherit;
-  border: none;
-  outline: none;
-  background: none;
+summary {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  font-size: 1em;
+  font-weight: normal;
+  display: inline;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::marker {
+  display: none;
 }
 
 a {

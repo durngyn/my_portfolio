@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Cousine:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,296;1,296&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+
 .page {
   width: 100vw;
   height: 100vh;
@@ -7,6 +8,10 @@
   color: rgb(172 175 181);
   font-family: 'Noto Sans', sans-serif;
   user-select: none;
+  max-width: 100vw;
+  /* Limits width to the viewport */
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .nav {
@@ -15,8 +20,9 @@
   width: 100%;
   flex-direction: row;
   justify-content: center;
-  height: 7%;
+  height: 70px;
   box-sizing: border-box;
+
 }
 
 .leftNav,
@@ -29,6 +35,7 @@
   /* flex: 1; */
   /* height: 2.5vw; */
   padding: 10px;
+  box-sizing: border-box;
 }
 
 .midNav {
@@ -53,6 +60,7 @@
   align-items: center;
   height: 80%;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .textBox {
@@ -66,7 +74,7 @@
   border: 1.5px solid rgb(87 86 88);
   border-radius: 10px;
   height: 100%;
-
+  box-sizing: border-box;
 }
 
 .textBox:hover {
@@ -144,15 +152,16 @@
   display: flex;
   background: rgb(40 44 52);
   box-sizing: border-box;
-  width: 96%;
+  width: 100%;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .sideBar {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 4%;
+  width: 70px;
   background: rgb(47 51 61);
   padding-top: 10px;
   gap: 10px;
@@ -188,6 +197,7 @@
   /* border: 2px solid black; */
   align-items: center;
   padding-left: 30px;
+  box-sizing: border-box;
 }
 
 .explorer {
@@ -195,13 +205,20 @@
   font-size: 18;
   color: rgb(171 171 171);
   font-weight: 300;
+  box-sizing: border-box;
+}
+
+.explorerContainer {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .bottomBody {
   display: flex;
-  background: rgb(105, 99, 124);
+  background: rgb(219, 218, 224);
   height: 95%;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 .leftBodyExplorer {
@@ -216,6 +233,7 @@
 
 .leftBodyExplorer details {
   display: contents;
+  box-sizing: border-box;
 }
 
 .drop .spacing {
@@ -444,6 +462,7 @@
   padding: 5px;
   background: rgb(40 44 52);
   gap: 10px;
+  box-sizing: border-box;
 }
 
 
@@ -486,4 +505,11 @@
 
 .tab button.term {
   border-bottom: 2px solid rgb(226, 226, 226);
+}
+
+@media (max-width: 1200px) {
+  .textBox {
+    display: none;
+    box-sizing: border-box;
+  }
 }

@@ -1,0 +1,44 @@
+.dropChild {
+    display: flex;
+    height: 50px;
+    border: 1px solid black;
+    justify-items: center;
+    align-items: center;
+}
+
+.dropParent {
+    display: flex;
+    height: 50px;
+    border: 1px solid black;
+    justify-items: center;
+    align-items: center;
+}
+
+.dropSpacing {
+    width: 10px;
+}
+
+.leftBodyExplorer {
+    display: flex;
+    flex-direction: column;
+    width: 17%;
+    background-color: rgb(33 37 43);
+    /* border: 2px solid white; */
+    box-sizing: border-box;
+    user-select: none;
+}
+
+.leftBodyExplorer details {
+    display: contents;
+    box-sizing: border-box;
+}
+
+.arrow {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.drop[open] .arrow,
+.dropTwo[open] .arrowTwo {
+    transform: rotate(90deg);
+}
