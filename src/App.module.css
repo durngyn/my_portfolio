@@ -114,9 +114,11 @@
   display: none;
   position: absolute;
   border-radius: 8px;
-  padding: 5px;
+  /* padding: 5px; */
   z-index: 1;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  /* width: 100px; */
+  min-width: 250px;
 
 }
 
@@ -124,7 +126,6 @@
 .dc .buttonNav {
   all: unset;
   text-decoration: none;
-
   font-family: 'Noto Sans', sans-serif;
   color: aliceblue;
   border-radius: 5px;
@@ -136,9 +137,24 @@
   display: block;
 }
 
-.dc a:hover,
+.dc div:hover,
 .dc .buttonNav:hover {
   background: rgb(44 49 58);
+}
+
+.horzontalDc {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  margin: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.divider {
+  height: 1px;
+  border: none;
+  background-color: #4b4a4a;
 }
 
 .body {

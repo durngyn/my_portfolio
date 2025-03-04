@@ -1,21 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Cousine:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,296;1,296&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 .dropChild {
     display: flex;
     height: 50px;
-    border: 1px solid black;
     justify-items: center;
     align-items: center;
+}
+
+.dropContent {
+    padding: 5px;
 }
 
 .dropParent {
     display: flex;
     height: 50px;
-    border: 1px solid black;
+    justify-items: center;
+    align-items: center;
+    font-family: "Roboto", serif;
+    font-weight: 600;
+    color: rgb(204, 204, 204);
+    background: rgb(40 44 52);
+    cursor: pointer;
+}
+
+.dropParentTwo {
+    display: flex;
+    height: 50px;
     justify-items: center;
     align-items: center;
 }
 
+.dropParentTwo:hover {
+    background: rgb(40 44 52);
+}
+
 .dropSpacing {
-    width: 10px;
+    border-right: 1px solid transparent;
+    transition: border 0.2s ease-in-out;
+    width: 20px;
+    min-width: 20px;
+    height: 100%;
+}
+
+.leftBodyExplorer:hover .dropSpacing {
+    border-right: 1px solid rgb(110, 110, 110);
+}
+
+.dropSpacingTwo {
+    border-right: 1px solid transparent;
+    transition: border 0.2s ease-in-out;
+    width: 20px;
+    height: 100%;
+}
+
+.leftBodyExplorer:hover .dropSpacingTwo {
+    border-right: 1px solid rgb(110, 110, 110, .5);
+}
+
+.drop div:hover {
+    background: rgb(40 44 52);
 }
 
 .leftBodyExplorer {
@@ -23,7 +66,6 @@
     flex-direction: column;
     width: 17%;
     background-color: rgb(33 37 43);
-    /* border: 2px solid white; */
     box-sizing: border-box;
     user-select: none;
 }
@@ -33,12 +75,40 @@
     box-sizing: border-box;
 }
 
-.arrow {
-    margin-left: 5px;
+.arrow,
+.arrowTwo {
+    margin-left: 10px;
     margin-right: 5px;
+    color: aliceblue;
+}
+
+.arrowTwo {
+    margin-left: 10px;
 }
 
 .drop[open] .arrow,
 .dropTwo[open] .arrowTwo {
     transform: rotate(90deg);
+}
+
+.pdf {
+    margin-left: 5px;
+    margin-right: 5px;
+    color: rgb(239 83 80);
+}
+
+.react {
+    margin-right: 5px;
+    color: rgb(79, 176, 214);
+}
+
+.info {
+    margin-right: 5px;
+    color: rgb(79, 126, 214);
+}
+
+.folder {
+    margin-right: 5px;
+    margin-left: 2px;
+    color: rgb(31 240 156);
 }
