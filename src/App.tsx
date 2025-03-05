@@ -4,10 +4,9 @@
 import styles from "./App.module.css";
 import Typewriter from "./components/Typewriter";
 import BlinkingCursor from "./components/BlinkingCursor";
-import Explorer from "./components/ExplorerComponent";
 
-import { VscGithub, VscFiles, VscChevronRight } from "react-icons/vsc";
-import { FaLinkedin, FaFilePdf, FaFolder, FaReact } from "react-icons/fa";
+import { VscGithub, VscFiles } from "react-icons/vsc";
+import { FaLinkedin } from "react-icons/fa";
 
 import { LuMailPlus } from "react-icons/lu";
 
