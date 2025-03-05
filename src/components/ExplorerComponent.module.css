@@ -2,18 +2,26 @@
 
 .dropChild {
     display: flex;
-    height: 50px;
+    height: 40px;
     justify-items: center;
     align-items: center;
 }
 
+.dropChild:hover {
+    background: rgb(40 44 52);
+    cursor: pointer;
+}
+
 .dropContent {
-    padding: 5px;
+    margin-left: 20px;
+    display: flex;
+    justify-items: center;
+    cursor: pointer;
 }
 
 .dropParent {
     display: flex;
-    height: 50px;
+    height: 40px;
     justify-items: center;
     align-items: center;
     font-family: "Roboto", serif;
@@ -25,9 +33,10 @@
 
 .dropParentTwo {
     display: flex;
-    height: 50px;
+    height: 40px;
     justify-items: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .dropParentTwo:hover {

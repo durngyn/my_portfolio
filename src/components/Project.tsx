@@ -1,20 +1,27 @@
 
 import styles from "./ExplorerComponent.module.css"
 import { VscChevronRight } from "react-icons/vsc";
-import { FaLinkedin, FaFilePdf, FaFolder, FaReact } from "react-icons/fa";
+import { FaFolder, FaReact } from "react-icons/fa";
+import { IoIosInformationCircle } from "react-icons/io";
 
 interface ProjectProps {
-    name: string;
-    description: string;
-    img?: number;
-    icon?: number;
+    project: {
+        name: string;
+        id: number;
+        description: string;
+        img: string;
+    };
+    onProject: (project: {
+        name: string;
+        id: number;
+        description: string;
+        img: string
+    }) => void;
 };
 
 const Project: React.FC<ProjectProps> = ({
-    name,
-    description,
-    img,
-    icon,
+    project,
+    onProject
 }) => {
     return (
         <details className={styles.dropTwo}>
@@ -22,20 +29,23 @@ const Project: React.FC<ProjectProps> = ({
                 <div className={styles.dropSpacing}></div>
                 <VscChevronRight className={styles.arrowTwo} />
                 <FaFolder className={styles.folder} />
-                {name}
+                {project.name}
             </summary>
-            <summary className={styles.dropChild}>
+            <summary className={styles.dropChild}
+                onClick={() => onProject(project)}>
                 <div className={styles.dropSpacing}></div>
                 <div className={styles.dropSpacingTwo}></div>
                 <summary className={styles.dropContent}>
-                    span
+                    <FaReact className={styles.react} />
+                    {project.name}.tsx
                 </summary>
             </summary>
             <summary className={styles.dropChild}>
                 <div className={styles.dropSpacing}></div>
                 <div className={styles.dropSpacingTwo}></div>
                 <summary className={styles.dropContent}>
-                    span
+                    <IoIosInformationCircle className={styles.info} />
+                    <a href="https://github.com/durngyn" target="_blank">GITHUB.md</a>
                 </summary>
 
             </summary>

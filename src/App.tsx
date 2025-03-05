@@ -8,7 +8,7 @@ import Explorer from "./components/ExplorerComponent";
 
 import { VscGithub, VscFiles, VscChevronRight } from "react-icons/vsc";
 import { FaLinkedin, FaFilePdf, FaFolder, FaReact } from "react-icons/fa";
-import { IoIosInformationCircle } from "react-icons/io";
+
 import { LuMailPlus } from "react-icons/lu";
 
 import { useState, useEffect, useRef } from "react";
@@ -22,6 +22,8 @@ export default function Home() {
     img: "images/winston.jpg",
     name: "Portfolio"
   })
+
+  const [selectedProject, setSelectedProject] = useState<{ name: string; id: number; description: string; img: string } | null>(null);
 
   useEffect(() => {
     if (textContainerRef.current) {
@@ -64,25 +66,39 @@ export default function Home() {
 
   useEffect(() => {
     if (codeContainerRef.current) {
+      codeContainerRef.current.innerHTML = "";
 
-      const typewriter = new Typewriter(codeContainerRef.current, { loop: false, typingSpeed: 1 });
-
-      typewriter
-        .typeString("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
-        .pauseFor(5000)
-        .start();
+      if (selectedProject?.description) {
+        const typewriter = new Typewriter(codeContainerRef.current, {
+          loop: false,
+          typingSpeed: 1,
+        });
+        typewriter
+          .typeString(selectedProject.description)
+          .pauseFor(5000)
+          .start();
+      }
     }
-  }, []);
+  }, [selectedProject]);
+
+  useEffect(() => {
+    if (selectedProject) {
+      setWindow({
+        img: selectedProject.img,
+        name: selectedProject.name,
+      });
+    }
+  }, [selectedProject]);
 
   const [content, setContent] = useState({
-    window: <ExplorerComponent />,
+    window: <ExplorerComponent onProjectClick={setSelectedProject} />,
     text: "EXPLORER"
   });
 
   const [terminal, setTerminal] = useState<{ window: any, render?: boolean }>({
     window:
       <code className={styles.cdText}>
-        C:\Users\Darren Nguyen\my_projects\{window.name}
+        C:\Users\Darren Nguyen\my_projects\{selectedProject?.name}&gt;
       </code>,
     render: true
   });
@@ -92,7 +108,7 @@ export default function Home() {
       {
         window:
           <code className={styles.cdText}
-          >C:\Users\Darren Nguyen\my_projects\{window.name}
+          >C:\Users\Darren Nguyen\my_projects\{selectedProject?.name}&gt;
           </code>
       }
     )
@@ -142,12 +158,12 @@ export default function Home() {
               </div>
 
               <div className={styles.horzontalDc}>
-                <a href="https://www.linkedin.com/in/darren-n-in/" target="_blank">Discord</a>
+                <a href="https:/discord.com/users/instanphoga/" target="_blank">Discord</a>
                 <a target="_blank">instantphoga</a>
               </div>
               <hr className={styles.divider} />
               <div className={styles.horzontalDc}>
-                <a href="https://www.linkedin.com/in/darren-n-in/" target="_blank">Spotify</a>
+                <a href="https://open.spotify.com/user/yqpv3jwmro89ll637qpc9ad4w?si=0f9e14c0d67c477a/" target="_blank">Spotify</a>
                 <a target="_blank">daren</a>
               </div>
 
@@ -174,7 +190,7 @@ export default function Home() {
       <div className={styles.body}>
         <div className={styles.sideBar}>
           <button className={styles.sideButton} onClick={() => setContent({
-            window: <ExplorerComponent />,
+            window: <ExplorerComponent onProjectClick={setSelectedProject} />,
             text: "EXPLORER"
           })}>
             <VscFiles style={{ color: 'rgb(114 118 126)', fontSize: '45px' }}
@@ -226,12 +242,12 @@ export default function Home() {
             {content.window}
             <div className={styles.rightBody}>
               <div className={styles.directory}>
-                <p>{window.name}</p>
+                <p>{selectedProject?.name}</p>
               </div>
               <div className={styles.code}>
                 <div className={styles.topCode}>
                   <div className={styles.name}>
-                    <h1> {window.name}</h1>
+                    <h1> ##{selectedProject?.name}</h1>
                   </div>
                   <code className={styles.desc}>
                     <div ref={codeContainerRef}></div>
@@ -256,8 +272,8 @@ export default function Home() {
                   })}>DEBUG CONSOLE</button>
                   <button onClick={() => setTerminal({
                     window:
-                      <code className={styles.cdText}
-                      >C:\Users\Darren Nguyen\my_projects\{window.name}
+                      <code className={styles.cdText}>
+                        C:\Users\Darren Nguyen\my_projects\{selectedProject?.name}
                       </code>
                   })} className={styles.term}>TERMINAL</button>
                   <button onClick={() => setTerminal({
