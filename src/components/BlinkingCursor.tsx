@@ -26,7 +26,7 @@ const BlinkingCursor: React.FC<BlinkingCursorProps> = ({
   }, [blinkRate]);
 
   return (
-    <span 
+    <span
       style={{
         display: 'inline-block',
         width: `${width}px`,
