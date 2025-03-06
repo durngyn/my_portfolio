@@ -5,7 +5,6 @@ import { VscChevronRight } from "react-icons/vsc";
 import { FaFilePdf } from "react-icons/fa";
 import Project from "./Project";
 
-
 interface ExplorerProps {
     onProjectClick: (projectId: {
         name: string;

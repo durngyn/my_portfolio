@@ -206,6 +206,8 @@
   align-items: center;
   padding-left: 30px;
   box-sizing: border-box;
+  min-width: 300px;
+  max-width: 300px;
 }
 
 .explorer {
@@ -261,7 +263,7 @@
 .rightBody {
   display: flex;
   flex-direction: column;
-  width: 83%;
+  width: 100%;
   background-color: rgb(40 44 52);
   /* border: 2px solid rgb(161, 6, 6); */
   /* box-sizing: border-box; */

@@ -51,6 +51,12 @@
     height: 100%;
 }
 
+.leftBodyExplorer {
+    width: 300px;
+    max-width: 300px;
+    min-width: 300px;
+}
+
 .leftBodyExplorer:hover .dropSpacing {
     border-right: 1px solid rgb(110, 110, 110);
 }
