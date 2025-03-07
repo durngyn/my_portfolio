@@ -23,7 +23,7 @@ export default function Home() {
   const codeContainerRef = useRef<HTMLDivElement>(null);
 
   const [window, setWindow] = useState({
-    img: "images/winston.jpg",
+    img: "images/vsc.png",
     name: "Portfolio"
   })
 
@@ -32,7 +32,7 @@ export default function Home() {
   useEffect(() => {
     if (textContainerRef.current) {
 
-      const typewriter = new Typewriter(textContainerRef.current, { loop: true, typingSpeed: 50 });
+      const typewriter = new Typewriter(textContainerRef.current, { loop: false, typingSpeed: 50 });
 
       typewriter
         .deleteAll()
@@ -130,27 +130,28 @@ export default function Home() {
           <div className={styles.leftNav}>
             <img src={"images/logo.png"} alt="Logo" style={{ width: '30px', height: 'auto' }} />
 
-            <button className={styles.navButton}>File</button>
+            <button className={styles.navButton}>
+              Home
+            </button>
 
-            <div className={styles.dropdown}>
+            {/* <div className={styles.dropdown}>
               <button className={styles.navButton}>
 
                 Projects
               </button>
-              {/* {isOpen && (  */}
+             
               <div className={styles.dc}>
                 <a >Synczone</a>
                 <a >Portfolio</a>
 
               </div>
-              {/* )} */}
-            </div>
+      
+            </div> */}
             <div className={styles.dropdown}>
               <button className={styles.navButton}>
 
                 Socials
               </button>
-              {/* {isOpen && (  */}
               <div className={styles.dc}>
                 <div className={styles.horzontalDc}>
                   <a href="https://www.linkedin.com/in/darren-n-in/" target="_blank">LinkedIn</a>
@@ -216,25 +217,16 @@ export default function Home() {
                 onMouseEnter={(e) => (e.currentTarget.style.color = "rgb(215 218 224)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "grey")} />
             </button>
-            <button onClick={() => setContent({
-              window: <div className={styles.leftBodyIn}>
-              </div>,
-              text: "LINKEDIN"
-            })}>
+            <a href="https://www.linkedin.com/in/darren-n-in/" target="_blank" style={{ marginTop: "15px", marginBottom: "15px", }}>
               <FaLinkedin style={{ color: 'rgb(114 118 126)', fontSize: '40px' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "rgb(215 218 224)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "grey")} />
-            </button>
-            <button onClick={() => setContent({
-              window: <div className={styles.leftBodyGithub}>
-                <iframe src="https://www.rapidtables.com/convert/color/hex-to-rgb.html?hex=acafb5"></iframe>
-              </div>,
-              text: "GITHUB"
-            })}>
+            </a>
+            <a href="https://www.linkedin.com/in/darren-n-in/" target="_blank" style={{ marginTop: "15px", marginBottom: "15px" }}>
               <VscGithub style={{ color: 'rgb(114 118 126)', fontSize: '40px' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "rgb(215 218 224)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "grey")} />
-            </button>
+            </a>
 
           </div>
           <div className={styles.mainBody}>
@@ -253,7 +245,7 @@ export default function Home() {
               <div className={styles.rightBody}>
 
                 <div className={styles.directory}>
-                  <p>{selectedProject?.name}</p>
+                  {/* <p>{selectedProject?.name}</p> */}
                 </div>
                 <div className={styles.code}>
                   <div className={styles.topCode}>
@@ -265,7 +257,7 @@ export default function Home() {
                     </code>
                   </div>
                   <div className={styles.bottomCode}>
-                    <img src={window.img} style={{ width: '600px', height: 'auto' }} />
+                    <img src={window.img} style={{ width: '500px', height: '500px' }} />
                   </div>
                 </div>
 

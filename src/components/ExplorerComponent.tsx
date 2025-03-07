@@ -20,19 +20,25 @@ const ExplorerComponent: React.FC<ExplorerProps> = ({ onProjectClick }) => {
             name: "Portfolio",
             id: 1,
             description: "It is this site!!!",
-            img: "images/winston.jpg",
+            img: "images/vsc.png",
         },
         {
             name: "Synczone",
             id: 2,
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente in pariatur quibusdam sint voluptas placeat nulla atque nam aspernatur, ad dolorum debitis quaerat! Libero consequuntur maxime laborum a error expedita.",
-            img: "images/jett.jpg",
+            img: "images/sz.png",
         },
         {
             name: "Spotify",
             id: 3,
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente in pariatur quibusdam sint voluptas placeat nulla atque nam aspernatur, ad dolorum debitis quaerat! Libero consequuntur maxime laborum a error expedita.",
             img: "images/scout.jpg",
+        },
+        {
+            name: "Filler",
+            id: 4,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente in pariatur quibusdam sint voluptas placeat nulla atque nam aspernatur, ad dolorum debitis quaerat! Libero consequuntur maxime laborum a error expedita.",
+            img: "images/winston.jpg",
         },
     ]
     return (

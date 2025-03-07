@@ -1,17 +1,18 @@
 .tabs {
     display: flex;
-    background-color: #252526;
+    background-color: rgb(24 26 31);
     overflow-x: auto;
-
+    
     height: 100%;
     flex-direction: row;
+    /* gap: 1px; */
 }
 
 .tab {
     display: flex;
     align-items: center;
     padding: 0 12px;
-    background-color: rgb(33 37 43);
+    background-color:rgb(33 37 43);
     margin-right: 1px;
     cursor: pointer;
     min-width: fit-content;
@@ -26,14 +27,15 @@
 }
 
 .activeTab {
-    background-color: rgb(56 62 74);
-    border-top: 1px solid #007acc;
+    background-color: rgb(40 44 52);
+    border-top: 1px solid rgb(31 240 156);
     color: white;
 }
 
 .tabIcon {
     margin-right: 6px;
     font-size: 14px;
+    color: rgb(79, 176, 214);
 }
 
 .tabLabel {

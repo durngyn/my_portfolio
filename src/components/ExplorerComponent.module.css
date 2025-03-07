@@ -5,6 +5,7 @@
     height: 40px;
     justify-items: center;
     align-items: center;
+
 }
 
 .dropChild:hover {
@@ -48,7 +49,9 @@
     transition: border 0.2s ease-in-out;
     width: 20px;
     min-width: 20px;
+    max-width: 20px;
     height: 100%;
+    box-sizing: border-box;
 }
 
 .leftBodyExplorer {
@@ -64,8 +67,11 @@
 .dropSpacingTwo {
     border-right: 1px solid transparent;
     transition: border 0.2s ease-in-out;
-    width: 20px;
+    width: 23px;
+    min-width: 23px;
+    max-width: 23px;
     height: 100%;
+    box-sizing: border-box;
 }
 
 .leftBodyExplorer:hover .dropSpacingTwo {
@@ -126,4 +132,37 @@
     margin-right: 5px;
     margin-left: 2px;
     color: rgb(31 240 156);
+}
+
+.activeProject {
+    background-color: rgb(44 49 58);
+}
+
+
+
+.activeProjectParent {
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.activeFile {
+    background-color: rgb(44 49 58);
+    border: 1px solid rgb(31 240 156);
+    box-sizing: border-box;
+}
+
+.activeFile .dropSpacing {
+    width: 19px;
+    min-width: 19px;
+    max-width: 19px;
+}
+
+/* .activeFile .dropSpacingTwo {
+    width: 22px;
+    min-width: 22px;
+    max-width: 22px;
+} */
+
+.activeText {
+    color: #fff;
 }

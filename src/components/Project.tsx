@@ -4,6 +4,7 @@ import { VscChevronRight } from "react-icons/vsc";
 import { FaFolder, FaReact } from "react-icons/fa";
 import { IoIosInformationCircle } from "react-icons/io";
 import { useTabs } from './TabsContext';
+import { useState, useEffect } from 'react';
 
 interface ProjectProps {
     project: {
@@ -21,7 +22,21 @@ interface ProjectProps {
 }
 
 const Project: React.FC<ProjectProps> = ({ project, onProject }) => {
-    const { addTab } = useTabs();
+    const { addTab, activeTabId, tabs } = useTabs();
+    const [isActive, setIsActive] = useState(false);
+
+    useEffect(() => {
+        if (activeTabId) {
+            const activeTab = tabs.find(tab => tab.id === activeTabId);
+            if (activeTab && activeTab.projectData.id === project.id) {
+                setIsActive(true);
+            } else {
+                setIsActive(false);
+            }
+        } else {
+            setIsActive(false);
+        }
+    }, [activeTabId, project.id, tabs]);
 
     const handleTsxClick = () => {
 
@@ -38,45 +53,58 @@ const Project: React.FC<ProjectProps> = ({ project, onProject }) => {
         });
     };
 
-    const handleMdClick = () => {
+    // const handleMdClick = () => {
 
-        const mdProject = {
-            ...project,
-            description: `# GitHub Repository for ${project.name}\n\nThis is the GitHub documentation for the ${project.name} project.\n\nCheck out the code at https://github.com/durngyn/${project.name.toLowerCase()}`
-        };
+    //     const mdProject = {
+    //         ...project,
+    //         description: `# GitHub Repository for ${project.name}\n\nThis is the GitHub documentation for the ${project.name} project.\n\nCheck out the code at https://github.com/durngyn/${project.name.toLowerCase()}`
+    //     };
 
-        onProject(mdProject);
+    //     onProject(mdProject);
 
-        addTab({
-            id: `${project.id}-md`,
-            label: `GITHUB.md`,
-            projectData: mdProject,
-            type: 'md'
-        });
-    };
+    //     addTab({
+    //         id: `${project.id}-md`,
+    //         label: `GITHUB.md`,
+    //         projectData: mdProject,
+    //         type: 'md'
+    //     });
+    // };
 
     return (
-        <details className={styles.dropTwo}>
-            <summary className={styles.dropParentTwo}>
+        <details className={`${styles.dropTwo} ${isActive ? styles.activeProject : ''}`}>
+            <summary className={`${styles.dropParentTwo} ${isActive ? styles.activeProjectParent : ''}`}>
                 <div className={styles.dropSpacing}></div>
                 <VscChevronRight className={styles.arrowTwo} />
-                <FaFolder className={styles.folder} />
-                {project.name}
+                <FaFolder className={`${styles.folder} ${isActive ? styles.activeIcon : ''}`} />
+                <span className={isActive ? styles.activeText : ''}>{project.name}</span>
             </summary>
-            <summary className={styles.dropChild} onClick={handleTsxClick}>
-                <div className={styles.dropSpacing}></div>
+            <summary
+                className={`${styles.dropChild} ${activeTabId === `${project.id}-tsx` ? styles.activeFile : ''}`}
+                onClick={handleTsxClick}
+            >
+                <div className={styles.dropSpacing} ></div>
                 <div className={styles.dropSpacingTwo}></div>
                 <summary className={styles.dropContent}>
-                    <FaReact className={styles.react} />
-                    {project.name}.tsx
+                    <FaReact className={`${styles.react} ${activeTabId === `${project.id}-tsx` ? styles.activeIcon : ''}`} />
+                    <span className={activeTabId === `${project.id}-tsx` ? styles.activeText : ''}>{project.name}.tsx</span>
                 </summary>
             </summary>
-            <summary className={styles.dropChild} onClick={handleMdClick}>
+            <summary
+                className={`${styles.dropChild} ${activeTabId === `${project.id}-md` ? styles.activeFile : ''}`}
+            // onClick={handleMdClick}
+            >
                 <div className={styles.dropSpacing}></div>
+
                 <div className={styles.dropSpacingTwo}></div>
                 <summary className={styles.dropContent}>
-                    <IoIosInformationCircle className={styles.info} />
-                    <a href="#" onClick={(e) => e.preventDefault()}>GITHUB.md</a>
+                    <IoIosInformationCircle className={`${styles.info} ${activeTabId === `${project.id}-md` ? styles.activeIcon : ''}`} />
+                    <a
+                        href="#"
+                        onClick={(e) => e.preventDefault()}
+                        className={activeTabId === `${project.id}-md` ? styles.activeText : ''}
+                    >
+                        GITHUB.md
+                    </a>
                 </summary>
             </summary>
         </details>
