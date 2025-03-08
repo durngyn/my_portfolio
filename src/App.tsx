@@ -125,7 +125,7 @@ export default function Home() {
       <div className={styles.page}>
         <div className={styles.nav}>
           <div className={styles.leftNav}>
-            <img src={"images/logo.png"} alt="Logo" style={{ width: '30px', height: 'auto' }} />
+            <img src={"/assets/logo.png"} alt="Logo" style={{ width: '30px', height: 'auto' }} />
 
             <button className={styles.navButton}>
               Home
