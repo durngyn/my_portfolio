@@ -12,12 +12,14 @@ interface ProjectProps {
         id: number;
         description: string;
         img: string;
+        link: string;
     };
     onProject: (project: {
         name: string;
         id: number;
         description: string;
         img: string;
+        link: string;
     }) => void;
 }
 
@@ -80,7 +82,7 @@ const Project: React.FC<ProjectProps> = ({ project, onProject }) => {
                 <summary className={styles.dropContent}>
                     <IoIosInformationCircle className={`${styles.info} ${activeTabId === `${project.id}-md` ? styles.activeIcon : ''}`} />
                     <a
-                        href="#"
+                        href={project.link}
                         onClick={(e) => e.preventDefault()}
                         className={activeTabId === `${project.id}-md` ? styles.activeText : ''}
                     >

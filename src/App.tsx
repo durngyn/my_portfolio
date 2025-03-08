@@ -76,7 +76,7 @@ export default function Home() {
       if (selectedProject?.description) {
         const typewriter = new Typewriter(codeContainerRef.current, {
           loop: false,
-          typingSpeed: .1,
+          typingSpeed: 1,
         });
         typewriter
           .typeString(selectedProject.description)
