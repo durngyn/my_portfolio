@@ -1,8 +1,5 @@
 
 import styles from "./ExplorerComponent.module.css";
-import { VscChevronRight } from "react-icons/vsc";
-import { FaFolder, FaReact } from "react-icons/fa";
-import { IoIosInformationCircle } from "react-icons/io";
 import { FaFilePdf } from "react-icons/fa";
 import { useTabs } from './TabsContext';
 import { useState, useEffect } from 'react';
