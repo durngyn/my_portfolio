@@ -2,8 +2,9 @@
 import styles from "./ExplorerComponent.module.css"
 
 import { VscChevronRight } from "react-icons/vsc";
-import { FaFilePdf } from "react-icons/fa";
+
 import Project from "./Project";
+import Resume from "./Resume";
 
 interface ExplorerProps {
     onProjectClick: (projectId: {
@@ -19,43 +20,38 @@ const ExplorerComponent: React.FC<ExplorerProps> = ({ onProjectClick }) => {
         {
             name: "Portfolio",
             id: 1,
-            description: "It is this site!!!",
-            img: "images/vsc.png",
+            description: "SyncZone is a cross-platform mobile messaging application built using React Native for the frontend and Supabase for backend services. The app focuses on facilitating seamless communication across time zones through real-time chat functionality enhanced with Hume AI emotion detection technology. Key features include a dynamic calendar interface for event scheduling, location-based weather updates, and comprehensive user authentication via email/password and social login options. The technical stack incorporates PostgreSQL for efficient data handling, while integrations with GeoNames and Weather APIs provide additional context-aware functionality to enhance the overall user experience.",
+            img: "images/vscode.png",
         },
         {
             name: "Synczone",
             id: 2,
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente in pariatur quibusdam sint voluptas placeat nulla atque nam aspernatur, ad dolorum debitis quaerat! Libero consequuntur maxime laborum a error expedita.",
+            description: "SyncZone is a cross-platform mobile messaging application built using React Native for the frontend and Supabase for backend services. The app focuses on facilitating seamless communication across time zones through real-time chat functionality enhanced with Hume AI emotion detection technology. Key features include a dynamic calendar interface for event scheduling, location-based weather updates, and comprehensive user authentication via email/password and social login options. The technical stack incorporates PostgreSQL for efficient data handling, while integrations with GeoNames and Weather APIs provide additional context-aware functionality to enhance the overall user experience.",
             img: "images/sz.png",
         },
         {
             name: "Spotify",
             id: 3,
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente in pariatur quibusdam sint voluptas placeat nulla atque nam aspernatur, ad dolorum debitis quaerat! Libero consequuntur maxime laborum a error expedita.",
+            description: "SyncZone is a cross-platform mobile messaging application built using React Native for the frontend and Supabase for backend services. The app focuses on facilitating seamless communication across time zones through real-time chat functionality enhanced with Hume AI emotion detection technology. Key features include a dynamic calendar interface for event scheduling, location-based weather updates, and comprehensive user authentication via email/password and social login options. The technical stack incorporates PostgreSQL for efficient data handling, while integrations with GeoNames and Weather APIs provide additional context-aware functionality to enhance the overall user experience.",
             img: "images/scout.jpg",
         },
         {
             name: "Filler",
             id: 4,
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente in pariatur quibusdam sint voluptas placeat nulla atque nam aspernatur, ad dolorum debitis quaerat! Libero consequuntur maxime laborum a error expedita.",
+            description: "SyncZone is a cross-platform mobile messaging application built using React Native for the frontend and Supabase for backend services. The app focuses on facilitating seamless communication across time zones through real-time chat functionality enhanced with Hume AI emotion detection technology. Key features include a dynamic calendar interface for event scheduling, location-based weather updates, and comprehensive user authentication via email/password and social login options. The technical stack incorporates PostgreSQL for efficient data handling, while integrations with GeoNames and Weather APIs provide additional context-aware functionality to enhance the overall user experience.",
             img: "images/winston.jpg",
         },
     ]
+
+    const resume = {
+        name: "Resume(2025)",
+        id: 0,
+        description: "It is this site!!!",
+        img: "images/vsc.png",
+    }
     return (
         <div className={styles.leftBodyExplorer}>
-            <details className={styles.drop}>
-                <summary className={styles.dropParent} >
-                    <VscChevronRight className={styles.arrow} />
-                    RESUME
-                </summary>
-                <div className={styles.dropChild}>
-                    <div className={styles.dropSpacing}></div>
-                    <summary className={styles.dropContent}>
-                        <FaFilePdf className={styles.pdf} />
-                        Resume(2025).pdf
-                    </summary>
-                </div>
-            </details>
+
             <details className={styles.drop}>
                 <summary className={styles.dropParent} >
                     <VscChevronRight className={styles.arrow} />
@@ -65,8 +61,19 @@ const ExplorerComponent: React.FC<ExplorerProps> = ({ onProjectClick }) => {
                     <Project
                         key={project.id}
                         project={project}
-                        onProject={onProjectClick} />
+                        onProject={onProjectClick}
+                    />
                 ))}
+            </details>
+            <details className={styles.drop}>
+                <summary className={styles.dropParent}>
+                    <VscChevronRight className={styles.arrow} />
+                    RESUME
+                </summary>
+                <Resume
+                    key={resume.id}
+                    project={resume}
+                    onProject={onProjectClick} />
             </details>
         </div>
     );

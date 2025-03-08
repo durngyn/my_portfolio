@@ -3,7 +3,6 @@ import styles from './TabsComponent.module.css';
 import { useTabs } from './TabsContext';
 import { VscClose } from 'react-icons/vsc';
 import { FaReact } from 'react-icons/fa';
-import { IoIosInformationCircle } from 'react-icons/io';
 import { FaFilePdf } from 'react-icons/fa';
 
 const TabsComponent: React.FC = () => {
@@ -17,10 +16,8 @@ const TabsComponent: React.FC = () => {
         switch (type) {
             case 'tsx':
                 return <FaReact className={styles.tabIcon} />;
-            case 'md':
-                return <IoIosInformationCircle className={styles.tabIcon} />;
             case 'pdf':
-                return <FaFilePdf className={styles.tabIcon} />;
+                return <FaFilePdf className={styles.tabIconPdf} />;
             default:
                 return null;
         }
@@ -37,8 +34,7 @@ const TabsComponent: React.FC = () => {
                 <div
                     key={tab.id}
                     className={`${styles.tab} ${tab.id === activeTabId ? styles.activeTab : ''}`}
-                    onClick={() => { handleClick(tab.id, tab.test) }}
-                >
+                    onClick={() => { handleClick(tab.id, tab.test) }}>
                     {getTabIcon(tab.type)}
                     <span className={styles.tabLabel}>{tab.label}</span>
                     <button
@@ -46,8 +42,7 @@ const TabsComponent: React.FC = () => {
                         onClick={(e) => {
                             e.stopPropagation();
                             closeTab(tab.id);
-                        }}
-                    >
+                        }}>
                         <VscClose />
                     </button>
                 </div>

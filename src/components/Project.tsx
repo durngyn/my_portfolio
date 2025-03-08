@@ -53,23 +53,6 @@ const Project: React.FC<ProjectProps> = ({ project, onProject }) => {
         });
     };
 
-    // const handleMdClick = () => {
-
-    //     const mdProject = {
-    //         ...project,
-    //         description: `# GitHub Repository for ${project.name}\n\nThis is the GitHub documentation for the ${project.name} project.\n\nCheck out the code at https://github.com/durngyn/${project.name.toLowerCase()}`
-    //     };
-
-    //     onProject(mdProject);
-
-    //     addTab({
-    //         id: `${project.id}-md`,
-    //         label: `GITHUB.md`,
-    //         projectData: mdProject,
-    //         type: 'md'
-    //     });
-    // };
-
     return (
         <details className={`${styles.dropTwo} ${isActive ? styles.activeProject : ''}`}>
             <summary className={`${styles.dropParentTwo} ${isActive ? styles.activeProjectParent : ''}`}>
@@ -90,9 +73,7 @@ const Project: React.FC<ProjectProps> = ({ project, onProject }) => {
                 </summary>
             </summary>
             <summary
-                className={`${styles.dropChild} ${activeTabId === `${project.id}-md` ? styles.activeFile : ''}`}
-            // onClick={handleMdClick}
-            >
+                className={`${styles.dropChild} ${activeTabId === `${project.id}-md` ? styles.activeFile : ''}`}>
                 <div className={styles.dropSpacing}></div>
 
                 <div className={styles.dropSpacingTwo}></div>

@@ -15,6 +15,7 @@ import ExplorerComponent from "./components/ExplorerComponent";
 
 import { TabsProvider } from "./components/TabsContext";
 import TabsComponent from "./components/TabsComponent";
+import Socials from "./components/Socials";
 
 
 
@@ -23,8 +24,8 @@ export default function Home() {
   const codeContainerRef = useRef<HTMLDivElement>(null);
 
   const [window, setWindow] = useState({
-    img: "images/vsc.png",
-    name: "Portfolio"
+    img: "",
+    name: ""
   })
 
   const [selectedProject, setSelectedProject] = useState<{ name: string; id: number; description: string; img: string } | null>(null);
@@ -75,7 +76,7 @@ export default function Home() {
       if (selectedProject?.description) {
         const typewriter = new Typewriter(codeContainerRef.current, {
           loop: false,
-          typingSpeed: 1,
+          typingSpeed: .1,
         });
         typewriter
           .typeString(selectedProject.description)
@@ -99,29 +100,25 @@ export default function Home() {
     text: "EXPLORER"
   });
 
-  const [terminal, setTerminal] = useState<{ window: any, render?: boolean }>({
-    window:
-      <code className={styles.cdText}>
-        C:\Users\Darren Nguyen\my_projects\{selectedProject?.name}&gt;
-      </code>,
-    render: true
-  });
+  // const [terminal, setTerminal] = useState<{ window: any, render?: boolean }>({
+  //   window:
+  //     <code className={styles.cdText}>
+  //       C:\Users\Darren Nguyen\my_projects\{selectedProject?.name}&gt;
+  //     </code>,
+  //   render: true
+  // });
 
-  useEffect(() => {
-    setTerminal(
-      {
-        window:
-          <code className={styles.cdText}
-          >C:\Users\Darren Nguyen\my_projects\{selectedProject?.name}&gt;
-          </code>
-      }
-    )
-    console.log('testing')
-  }, [window]);
-
-
-
-
+  // useEffect(() => {
+  //   setTerminal(
+  //     {
+  //       window:
+  //         <code className={styles.cdText}
+  //         >C:\Users\Darren Nguyen\my_projects\{selectedProject?.name}&gt;
+  //         </code>
+  //     }
+  //   )
+  //   console.log('testing')
+  // }, [window]);
   return (
     <TabsProvider>
 
@@ -153,42 +150,23 @@ export default function Home() {
                 Socials
               </button>
               <div className={styles.dc}>
-                <div className={styles.horzontalDc}>
-                  <a href="https://www.linkedin.com/in/darren-n-in/" target="_blank">LinkedIn</a>
-                  <a target="_blank">in/darren-n-in</a>
-                </div>
-                <div className={styles.horzontalDc}>
-                  <a href="https://github.com/durngyn" target="_blank">Github</a>
-                  <a target="_blank">durngyn</a>
-                </div>
+                <Socials name={"Github"} link={"https://github.com/durngyn"} tag={"durngyn"} />
+                <Socials name={"LinkedIn"} link={"https://www.linkedin.com/in/darren-n-in/"} tag={"in/darren-n-in"} />
                 <hr className={styles.divider} />
-                <div className={styles.horzontalDc}>
-                  <a href="https://www.linkedin.com/in/darren-n-in/" target="_blank">Instagram</a>
-                  <a target="_blank">darn.ngt</a>
-                </div>
-
-                <div className={styles.horzontalDc}>
-                  <a href="https:/discord.com/users/instanphoga/" target="_blank">Discord</a>
-                  <a target="_blank">instantphoga</a>
-                </div>
+                <Socials name={"Gmail"} link={"darrennguyen321919@gmail.com"} tag={"darrennguyen321919"} />
+                <Socials name={"Discord"} link={"https:/discord.com/users/instanphoga/"} tag={"instantphoga"} />
                 <hr className={styles.divider} />
-                <div className={styles.horzontalDc}>
-                  <a href="https://open.spotify.com/user/yqpv3jwmro89ll637qpc9ad4w?si=0f9e14c0d67c477a/" target="_blank">Spotify</a>
-                  <a target="_blank">daren</a>
-                </div>
-
+                <Socials name={"Spotify"} link={"https://open.spotify.com/user/yqpv3jwmro89ll637qpc9ad4w?si=0f9e14c0d67c477a/"} tag={"daren"} />
               </div>
-              {/* )} */}
             </div>
 
             <button className={styles.navButton}>About</button>
           </div>
           <div className={styles.midNav}>
             <div className={styles.textBox}>
-              {/* <img src={"images/mag.png"} alt="Logo"  /> */}
               <h1 className={styles.title}>
 
-                <div style={{ display: 'inline-block' }} ref={textContainerRef}></div>
+                <div style={{ display: 'inline-block', fontSize: '26px' }} ref={textContainerRef}></div>
                 <BlinkingCursor />
               </h1>
             </div>
@@ -250,8 +228,13 @@ export default function Home() {
                 <div className={styles.code}>
                   <div className={styles.topCode}>
                     <div className={styles.name}>
-                      <h1> ##{selectedProject?.name}</h1>
+                      <code className={styles.proj}> ##{selectedProject?.name} </code>
                     </div>
+                    <hr className={styles.divider} />
+                    <div className={styles.name}>
+                      <code className={styles.proj}> ##{selectedProject?.name} </code>
+                    </div>
+                    <hr className={styles.divider} />
                     <code className={styles.desc}>
                       <div ref={codeContainerRef}></div>
                     </code>
@@ -261,7 +244,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className={styles.terminal}>
+                {/* <div className={styles.terminal}>
                   <div className={styles.tab}>
                     <button onClick={() => setTerminal({
                       window: <code> </code>
@@ -290,7 +273,7 @@ export default function Home() {
                   <div className={styles.cd}>
                     {terminal.window}
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
