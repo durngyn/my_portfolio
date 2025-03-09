@@ -2,9 +2,9 @@
 import styles from "./ExplorerComponent.module.css";
 import { VscChevronRight } from "react-icons/vsc";
 import { FaFolder, FaReact } from "react-icons/fa";
-import { IoIosInformationCircle } from "react-icons/io";
 import { useTabs } from './TabsContext';
 import { useState, useEffect } from 'react';
+import { FaGithubAlt } from "react-icons/fa";
 
 interface ProjectProps {
     project: {
@@ -13,6 +13,7 @@ interface ProjectProps {
         description: string;
         img: string;
         link: string;
+        tech: string;
     };
     onProject: (project: {
         name: string;
@@ -20,6 +21,7 @@ interface ProjectProps {
         description: string;
         img: string;
         link: string;
+        tech: string;
     }) => void;
 }
 
@@ -74,22 +76,23 @@ const Project: React.FC<ProjectProps> = ({ project, onProject }) => {
                     <span className={activeTabId === `${project.id}-tsx` ? styles.activeText : ''}>{project.name}.tsx</span>
                 </summary>
             </summary>
-            <summary
-                className={`${styles.dropChild} ${activeTabId === `${project.id}-md` ? styles.activeFile : ''}`}>
+            <a
+                className={`${styles.dropChild} ${activeTabId === `${project.id}-md` ? styles.activeFile : ''}`}
+                href={project.link} target="_blank">
                 <div className={styles.dropSpacing}></div>
 
                 <div className={styles.dropSpacingTwo}></div>
                 <summary className={styles.dropContent}>
-                    <IoIosInformationCircle className={`${styles.info} ${activeTabId === `${project.id}-md` ? styles.activeIcon : ''}`} />
+                    <FaGithubAlt className={`${styles.info} ${activeTabId === `${project.id}-md` ? styles.activeIcon : ''}`} />
                     <a
-                        href={project.link}
-                        onClick={(e) => e.preventDefault()}
-                        className={activeTabId === `${project.id}-md` ? styles.activeText : ''}
+                    // href={project.link}
+                    // onClick={(e) => e.preventDefault()}
+                    // className={activeTabId === `${project.id}-md` ? styles.activeText : ''}
                     >
-                        GITHUB.md
+                        Github.txt
                     </a>
                 </summary>
-            </summary>
+            </a>
         </details>
     );
 };

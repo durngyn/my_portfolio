@@ -39,12 +39,29 @@ export const TabsProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     };
 
     const closeTab = (tabId: string) => {
+
+        const tabIndex = tabs.findIndex(tab => tab.id === tabId);
+        const closingTab = tabs[tabIndex];
+
         setTabs(prevTabs => prevTabs.filter(tab => tab.id !== tabId));
 
         if (activeTabId === tabId) {
             const remainingTabs = tabs.filter(tab => tab.id !== tabId);
+
             if (remainingTabs.length > 0) {
-                setActiveTabId(remainingTabs[remainingTabs.length - 1].id);
+                const sameProjectTab = remainingTabs.find(tab =>
+                    tab.projectData.id === closingTab.projectData.id
+                );
+
+                if (sameProjectTab) {
+                    setActiveTabId(sameProjectTab.id);
+                    sameProjectTab.test?.();
+                } else {
+                    const newActiveIndex = tabIndex === 0 ? 0 : tabIndex - 1;
+                    const newActiveTab = remainingTabs[Math.min(newActiveIndex, remainingTabs.length - 1)];
+                    setActiveTabId(newActiveTab.id);
+                    newActiveTab.test?.();
+                }
             } else {
                 setActiveTabId(null);
             }

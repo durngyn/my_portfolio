@@ -138,23 +138,21 @@
     background-color: rgb(44 49 58);
 }
 
-
-
 .activeProjectParent {
-    color: #fff;
-    box-sizing: border-box;
+    color: #ffffff;
+
 }
 
 .activeFile {
     background-color: rgb(44 49 58);
-    border: 1px solid rgb(31 240 156);
+    border-left: 4px solid rgb(31 240 156);
     box-sizing: border-box;
 }
 
 .activeFile .dropSpacing {
     width: 19px;
-    min-width: 19px;
-    max-width: 19px;
+    min-width: 16px;
+    max-width: 16px;
 }
 
 /* .activeFile .dropSpacingTwo {

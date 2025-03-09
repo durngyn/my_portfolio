@@ -8,8 +8,6 @@ import BlinkingCursor from "./components/BlinkingCursor";
 import { VscGithub, VscFiles } from "react-icons/vsc";
 import { FaLinkedin } from "react-icons/fa";
 
-import { LuMailPlus } from "react-icons/lu";
-
 import { useState, useEffect, useRef } from "react";
 import ExplorerComponent from "./components/ExplorerComponent";
 
@@ -24,16 +22,17 @@ export default function Home() {
   const codeContainerRef = useRef<HTMLDivElement>(null);
 
   const [window, setWindow] = useState({
-    img: "",
-    name: ""
+    img: "/assets/vsc3.png",
+    name: "About",
+    tech: "I'm Darren and this is my Portfolio Site!",
   })
 
-  const [selectedProject, setSelectedProject] = useState<{ name: string; id: number; description: string; img: string } | null>(null);
+  const [selectedProject, setSelectedProject] = useState<{ name: string; id: number; description: string; img: string; tech: string; } | null>(null);
 
   useEffect(() => {
     if (textContainerRef.current) {
 
-      const typewriter = new Typewriter(textContainerRef.current, { loop: false, typingSpeed: 50 });
+      const typewriter = new Typewriter(textContainerRef.current, { loop: true, typingSpeed: 50 });
 
       typewriter
         .deleteAll()
@@ -57,6 +56,8 @@ export default function Home() {
         .typeString("HTML")
         .pauseFor(300)
         .typeString(", CSS")
+        .pauseFor(300)
+        .typeString(", Vite")
         .pauseFor(300)
         .typeString(", & React TypeScript (TSX)")
         .pauseFor(3000)
@@ -91,6 +92,7 @@ export default function Home() {
       setWindow({
         img: selectedProject.img,
         name: selectedProject.name,
+        tech: selectedProject.tech,
       });
     }
   }, [selectedProject]);
@@ -127,7 +129,13 @@ export default function Home() {
           <div className={styles.leftNav}>
             <img src={"/assets/logo.png"} alt="Logo" style={{ width: '30px', height: 'auto' }} />
 
-            <button className={styles.navButton}>
+            <button
+              className={styles.navButton}
+              onClick={() => setWindow({
+                img: "/assets/vsc3.png",
+                name: "About",
+                tech: "I'm Darren and this is my Portfolio Site!"
+              })}>
               Home
             </button>
 
@@ -185,7 +193,7 @@ export default function Home() {
                 onMouseEnter={(e) => (e.currentTarget.style.color = "rgb(215 218 224)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "grey")} />
             </button>
-            <button onClick={() => setContent({
+            {/* <button onClick={() => setContent({
               window: <div className={styles.leftBodyMail}>
 
               </div>,
@@ -194,20 +202,19 @@ export default function Home() {
               <LuMailPlus style={{ color: 'rgb(114 118 126)', fontSize: '40px' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "rgb(215 218 224)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "grey")} />
-            </button>
+            </button> */}
             <a href="https://www.linkedin.com/in/darren-n-in/" target="_blank" style={{ marginTop: "15px", marginBottom: "15px", }}>
               <FaLinkedin style={{ color: 'rgb(114 118 126)', fontSize: '40px' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "rgb(215 218 224)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "grey")} />
             </a>
-            <a href="https://www.linkedin.com/in/darren-n-in/" target="_blank" style={{ marginTop: "15px", marginBottom: "15px" }}>
+            <a href="https://github.com/durngyn" target="_blank" style={{ marginTop: "15px", marginBottom: "15px" }}>
               <VscGithub style={{ color: 'rgb(114 118 126)', fontSize: '40px' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "rgb(215 218 224)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "grey")} />
             </a>
 
-          </div>
-          <div className={styles.mainBody}>
+          </div>           <div className={styles.mainBody}>
 
             <div className={styles.topBar}>
               <div className={styles.exploreBox}>
@@ -222,17 +229,17 @@ export default function Home() {
               {content.window}
               <div className={styles.rightBody}>
 
-                <div className={styles.directory}>
-                  {/* <p>{selectedProject?.name}</p> */}
-                </div>
+                {/* <div className={styles.directory}>
+                  <p>{selectedProject?.name}</p>
+                </div> */}
                 <div className={styles.code}>
                   <div className={styles.topCode}>
                     <div className={styles.name}>
-                      <code className={styles.proj}> ##{selectedProject?.name} </code>
+                      <code className={styles.proj}> ##  {window?.name} </code>
                     </div>
-                    <hr className={styles.divider} />
+                    {/* <hr className={styles.divider} /> */}
                     <div className={styles.name}>
-                      <code className={styles.proj}> ##{selectedProject?.name} </code>
+                      <code className={styles.tech}> {window?.tech} </code>
                     </div>
                     <hr className={styles.divider} />
                     <code className={styles.desc}>
@@ -240,7 +247,7 @@ export default function Home() {
                     </code>
                   </div>
                   <div className={styles.bottomCode}>
-                    <img src={window.img} style={{ width: '500px', height: '500px' }} />
+                    <img src={window.img} style={{ width: '700px', height: '400px' }} />
                   </div>
                 </div>
 
