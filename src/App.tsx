@@ -161,7 +161,7 @@ export default function Home() {
                 <Socials name={"Github"} link={"https://github.com/durngyn"} tag={"durngyn"} />
                 <Socials name={"LinkedIn"} link={"https://www.linkedin.com/in/darren-n-in/"} tag={"in/darren-n-in"} />
                 <hr className={styles.divider} />
-                <Socials name={"Gmail"} link={"darrennguyen321919@gmail.com"} tag={"darrennguyen321919"} />
+                <Socials name={"Gmail"} link={"mailto:darrennguyen321919@gmail.com"} tag={"darrennguyen321919"} />
                 <Socials name={"Discord"} link={"https:/discord.com/users/instanphoga/"} tag={"instantphoga"} />
                 <hr className={styles.divider} />
                 <Socials name={"Spotify"} link={"https://open.spotify.com/user/yqpv3jwmro89ll637qpc9ad4w?si=0f9e14c0d67c477a/"} tag={"daren"} />
