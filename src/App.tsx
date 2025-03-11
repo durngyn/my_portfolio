@@ -15,11 +15,17 @@ import { TabsProvider } from "./components/TabsContext";
 import TabsComponent from "./components/TabsComponent";
 import Socials from "./components/Socials";
 
-
+import PortfolioComponent from "./components/PortfolioComponent";
+import AboutComponent from "./components/AboutComponent";
 
 export default function Home() {
   const textContainerRef = useRef<HTMLDivElement>(null);
   const codeContainerRef = useRef<HTMLDivElement>(null);
+  const [side, setSide] = useState(true);
+
+  const toggleSide = () => {
+    setSide(!side);
+  };
 
   const [window, setWindow] = useState({
     img: "/assets/vsc3.png",
@@ -27,7 +33,15 @@ export default function Home() {
     tech: "I'm Darren and this is my Portfolio Site!",
   })
 
-  const [selectedProject, setSelectedProject] = useState<{ name: string; id: number; description: string; img: string; tech: string; } | null>(null);
+  const [selectedProject, setSelectedProject] = useState<{ name: string; id: number; description: string; img: string; tech: string; }>(
+    {
+      name: "Portfolio",
+      id: 1,
+      description: "SyncZone is a cross-platform mobile messaging application built using React Native for the frontend and Supabase for backend services. The app focuses on facilitating seamless communication across time zones through real-time chat functionality enhanced with Hume AI emotion detection technology. Key features include a dynamic calendar interface for event scheduling, location-based weather updates, and comprehensive user authentication via email/password and social login options. The technical stack incorporates PostgreSQL for efficient data handling, while integrations with GeoNames and Weather APIs provide additional context-aware functionality to enhance the overall user experience.",
+      img: "",
+      tech: "Vite, React TypeScript, HTML, & CSS"
+    }
+  );
 
   useEffect(() => {
     if (textContainerRef.current) {
@@ -97,30 +111,6 @@ export default function Home() {
     }
   }, [selectedProject]);
 
-  const [content, setContent] = useState({
-    window: <ExplorerComponent onProjectClick={setSelectedProject} />,
-    text: "EXPLORER"
-  });
-
-  // const [terminal, setTerminal] = useState<{ window: any, render?: boolean }>({
-  //   window:
-  //     <code className={styles.cdText}>
-  //       C:\Users\Darren Nguyen\my_projects\{selectedProject?.name}&gt;
-  //     </code>,
-  //   render: true
-  // });
-
-  // useEffect(() => {
-  //   setTerminal(
-  //     {
-  //       window:
-  //         <code className={styles.cdText}
-  //         >C:\Users\Darren Nguyen\my_projects\{selectedProject?.name}&gt;
-  //         </code>
-  //     }
-  //   )
-  //   console.log('testing')
-  // }, [window]);
   return (
     <TabsProvider>
 
@@ -128,33 +118,13 @@ export default function Home() {
         <div className={styles.nav}>
           <div className={styles.leftNav}>
             <img src={"/assets/logo.png"} alt="Logo" style={{ width: '30px', height: 'auto' }} />
-
             <button
-              className={styles.navButton}
-              onClick={() => setWindow({
-                img: "/assets/vsc3.png",
-                name: "About",
-                tech: "I'm Darren and this is my Portfolio Site!"
-              })}>
-              Home
+              className={styles.navButton}>
+              <PortfolioComponent onProjectClick={setSelectedProject} />
+              {/* Home */}
             </button>
-
-            {/* <div className={styles.dropdown}>
-              <button className={styles.navButton}>
-
-                Projects
-              </button>
-             
-              <div className={styles.dc}>
-                <a >Synczone</a>
-                <a >Portfolio</a>
-
-              </div>
-      
-            </div> */}
             <div className={styles.dropdown}>
               <button className={styles.navButton}>
-
                 Socials
               </button>
               <div className={styles.dc}>
@@ -168,7 +138,7 @@ export default function Home() {
               </div>
             </div>
 
-            <button className={styles.navButton}>About</button>
+            <button className={styles.navButton}><AboutComponent onProjectClick={setSelectedProject} /></button>
           </div>
           <div className={styles.midNav}>
             <div className={styles.textBox}>
@@ -185,10 +155,8 @@ export default function Home() {
         </div>
         <div className={styles.body}>
           <div className={styles.sideBar}>
-            <button className={styles.sideButton} onClick={() => setContent({
-              window: <ExplorerComponent onProjectClick={setSelectedProject} />,
-              text: "EXPLORER"
-            })}>
+            <button className={styles.sideButton}
+              onClick={toggleSide}>
               <VscFiles style={{ color: 'rgb(114 118 126)', fontSize: '45px' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "rgb(215 218 224)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "grey")} />
@@ -219,23 +187,19 @@ export default function Home() {
             <div className={styles.topBar}>
               <div className={styles.exploreBox}>
                 <p className={styles.explorer}>
-                  {content.text}
+                  EXPLORER
                 </p>
               </div>
               <TabsComponent />
             </div>
 
             <div className={styles.bottomBody}>
-              {content.window}
+              {side && <ExplorerComponent onProjectClick={setSelectedProject} />}
               <div className={styles.rightBody}>
-
-                {/* <div className={styles.directory}>
-                  <p>{selectedProject?.name}</p>
-                </div> */}
                 <div className={styles.code}>
                   <div className={styles.topCode}>
                     <div className={styles.name}>
-                      <code className={styles.proj}> ##  {window?.name} </code>
+                      <code className={styles.proj}> ##  {selectedProject.name} </code>
                     </div>
                     {/* <hr className={styles.divider} /> */}
                     <div className={styles.name}>
@@ -250,37 +214,6 @@ export default function Home() {
                     <img src={window.img} style={{ width: '700px', height: '400px' }} />
                   </div>
                 </div>
-
-                {/* <div className={styles.terminal}>
-                  <div className={styles.tab}>
-                    <button onClick={() => setTerminal({
-                      window: <code> </code>
-                    })}>
-                      PROBLEMS
-                    </button>
-                    <button onClick={() => setTerminal({
-                      window: <code></code>
-                    })}>OUTPUT</button>
-                    <button onClick={() => setTerminal({
-                      window: <code></code>
-                    })}>DEBUG CONSOLE</button>
-                    <button onClick={() => setTerminal({
-                      window:
-                        <code className={styles.cdText}>
-                          C:\Users\Darren Nguyen\my_projects\{selectedProject?.name}
-                        </code>
-                    })} className={styles.term}>TERMINAL</button>
-                    <button onClick={() => setTerminal({
-                      window: <code></code>
-                    })}>PORTS</button>
-                    <button onClick={() => setTerminal({
-                      window: <code></code>
-                    })}>COMMENTS</button>
-                  </div>
-                  <div className={styles.cd}>
-                    {terminal.window}
-                  </div>
-                </div> */}
               </div>
             </div>
           </div>

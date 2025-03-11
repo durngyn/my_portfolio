@@ -4,6 +4,7 @@ import { useTabs } from './TabsContext';
 import { VscClose } from 'react-icons/vsc';
 import { FaReact } from 'react-icons/fa';
 import { FaFilePdf } from 'react-icons/fa';
+import { IoIosInformationCircle } from "react-icons/io";
 
 const TabsComponent: React.FC = () => {
     const { tabs, activeTabId, closeTab, setActiveTab } = useTabs();
@@ -18,6 +19,8 @@ const TabsComponent: React.FC = () => {
                 return <FaReact className={styles.tabIcon} />;
             case 'pdf':
                 return <FaFilePdf className={styles.tabIconPdf} />;
+            case 'md':
+                return <IoIosInformationCircle className={styles.tabIconInfo} />;
             default:
                 return null;
         }

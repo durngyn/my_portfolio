@@ -85,9 +85,6 @@ const Project: React.FC<ProjectProps> = ({ project, onProject }) => {
                 <summary className={styles.dropContent}>
                     <FaGithubAlt className={`${styles.info} ${activeTabId === `${project.id}-md` ? styles.activeIcon : ''}`} />
                     <a
-                    // href={project.link}
-                    // onClick={(e) => e.preventDefault()}
-                    // className={activeTabId === `${project.id}-md` ? styles.activeText : ''}
                     >
                         Github.txt
                     </a>

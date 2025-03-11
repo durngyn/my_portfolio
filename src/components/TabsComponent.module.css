@@ -45,6 +45,12 @@
     color: rgb(239 83 80);
 }
 
+.tabIconInfo {
+    margin-right: 6px;
+    font-size: 14px;
+    color: rgb(53, 109, 172);
+}
+
 .tabLabel {
     margin-right: 8px;
 }
