@@ -1,6 +1,4 @@
 
-import styles from "./ExplorerComponent.module.css";
-import { FaFilePdf } from "react-icons/fa";
 import { useTabs } from './TabsContext';
 
 
