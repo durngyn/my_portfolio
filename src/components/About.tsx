@@ -1,7 +1,6 @@
 
-
+import styles from "../App.module.css";
 import { useTabs } from './TabsContext';
-
 
 interface ProjectProps {
     project: {
@@ -18,6 +17,7 @@ interface ProjectProps {
         img: string;
         tech: string;
     }) => void;
+    toggleSide?: () => void;
 }
 
 const defaultProject = {
@@ -33,17 +33,19 @@ const defaultOnProject = (project: {
     id: number;
     description: string;
     img: string;
+    tech: string;
 }) => {
     console.log("Project selected:", project.name);
 };
 
-const Project: React.FC<ProjectProps> = ({ project = defaultProject, onProject = defaultOnProject, }) => {
+const Project: React.FC<ProjectProps> = ({ project = defaultProject, onProject = defaultOnProject, toggleSide }) => {
     const { addTab } = useTabs();
 
     const handleTsxClick = () => {
-
         onProject(project);
-
+        if (toggleSide) {
+            toggleSide();
+        }
         addTab({
             id: `${project.id}-md`,
             label: `${project.name}.md`,
@@ -53,10 +55,14 @@ const Project: React.FC<ProjectProps> = ({ project = defaultProject, onProject =
                 onProject(project);
             }
         });
+
+
     };
 
     return (
-        <span onClick={handleTsxClick}>About</span>
+        <button className={styles.navButton} onClick={handleTsxClick}>
+            <span>About</span>
+        </button>
     );
 };
 

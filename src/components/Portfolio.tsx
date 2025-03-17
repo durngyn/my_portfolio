@@ -1,4 +1,4 @@
-
+import styles from "../App.module.css";
 import { useTabs } from './TabsContext';
 
 
@@ -55,7 +55,9 @@ const Project: React.FC<ProjectProps> = ({ project = defaultProject, onProject =
     };
 
     return (
-        <span onClick={handleTsxClick}>Home</span>
+        <button className={styles.navButton} onClick={handleTsxClick}>
+            <span onClick={handleTsxClick}>Home</span>
+        </button>
     );
 };
 

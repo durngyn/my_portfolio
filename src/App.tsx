@@ -17,6 +17,8 @@ import Socials from "./components/Socials";
 
 import PortfolioComponent from "./components/PortfolioComponent";
 import AboutComponent from "./components/AboutComponent";
+import About from "./components/About";
+
 
 export default function Home() {
   const textContainerRef = useRef<HTMLDivElement>(null);
@@ -32,13 +34,20 @@ export default function Home() {
     name: "About",
     tech: "I'm Darren and this is my Portfolio Site!",
   })
-
+  const about = {
+    name: "About",
+    id: 5,
+    description: "SyncZone is a cross-platform mobile messaging application built using React Native for the frontend and Supabase for backend services. The app focuses on facilitating seamless communication across time zones through real-time chat functionality enhanced with Hume AI emotion detection technology. Key features include a dynamic calendar interface for event scheduling, location-based weather updates, and comprehensive user authentication via email/password and social login options. The technical stack incorporates PostgreSQL for efficient data handling, while integrations with GeoNames and Weather APIs provide additional context-aware functionality to enhance the overall user experience.",
+    img: "/assets/vsc3.png",
+    link: "https://github.com/durngyn/my_portfolio",
+    tech: "Vite, React TypeScript, HTML, & CSS"
+  };
   const [selectedProject, setSelectedProject] = useState<{ name: string; id: number; description: string; img: string; tech: string; }>(
     {
       name: "Portfolio",
       id: 1,
       description: "SyncZone is a cross-platform mobile messaging application built using React Native for the frontend and Supabase for backend services. The app focuses on facilitating seamless communication across time zones through real-time chat functionality enhanced with Hume AI emotion detection technology. Key features include a dynamic calendar interface for event scheduling, location-based weather updates, and comprehensive user authentication via email/password and social login options. The technical stack incorporates PostgreSQL for efficient data handling, while integrations with GeoNames and Weather APIs provide additional context-aware functionality to enhance the overall user experience.",
-      img: "",
+      img: "/assets/port.png",
       tech: "Vite, React TypeScript, HTML, & CSS"
     }
   );
@@ -111,6 +120,13 @@ export default function Home() {
     }
   }, [selectedProject]);
 
+  const [isCode, setIsCode] = useState(true
+  );
+
+  const toggleCode = () => {
+    setIsCode(!isCode);
+  };
+
   return (
     <TabsProvider>
 
@@ -118,11 +134,7 @@ export default function Home() {
         <div className={styles.nav}>
           <div className={styles.leftNav}>
             <img src={"/assets/logo.png"} alt="Logo" style={{ width: '30px', height: 'auto' }} />
-            <button
-              className={styles.navButton}>
-              <PortfolioComponent onProjectClick={setSelectedProject} />
-              {/* Home */}
-            </button>
+            <PortfolioComponent onProjectClick={setSelectedProject} />
             <div className={styles.dropdown}>
               <button className={styles.navButton}>
                 Socials
@@ -138,7 +150,7 @@ export default function Home() {
               </div>
             </div>
 
-            <button className={styles.navButton}><AboutComponent onProjectClick={setSelectedProject} /></button>
+            <About key={selectedProject.id} onProject={setSelectedProject} project={about} toggleSide={toggleCode} />
           </div>
           <div className={styles.midNav}>
             <div className={styles.textBox}>
@@ -196,24 +208,30 @@ export default function Home() {
             <div className={styles.bottomBody}>
               {side && <ExplorerComponent onProjectClick={setSelectedProject} />}
               <div className={styles.rightBody}>
-                <div className={styles.code}>
-                  <div className={styles.topCode}>
-                    <div className={styles.name}>
-                      <code className={styles.proj}> ##  {selectedProject.name} </code>
+                {isCode ? (
+                  <div className={styles.code}>
+                    <div className={styles.topCode}>
+                      <div className={styles.name}>
+                        <code className={styles.proj}> ##  {selectedProject.name} </code>
+                      </div>
+                      {/* <hr className={styles.divider} /> */}
+                      <div className={styles.name}>
+                        <code className={styles.tech}> {window?.tech} </code>
+                      </div>
+                      <hr className={styles.divider} />
+                      <code className={styles.desc}>
+                        <div ref={codeContainerRef}></div>
+                      </code>
                     </div>
-                    {/* <hr className={styles.divider} /> */}
-                    <div className={styles.name}>
-                      <code className={styles.tech}> {window?.tech} </code>
+                    <div className={styles.bottomCode}>
+                      <img src={window.img} style={{ width: '700px', height: '400px' }} />
                     </div>
-                    <hr className={styles.divider} />
-                    <code className={styles.desc}>
-                      <div ref={codeContainerRef}></div>
-                    </code>
                   </div>
-                  <div className={styles.bottomCode}>
-                    <img src={window.img} style={{ width: '700px', height: '400px' }} />
+                ) : (
+                  <div>
+
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </div>

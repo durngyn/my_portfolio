@@ -1,4 +1,3 @@
-// import { React } from "react";
 import About from "./About";
 
 interface ExplorerProps {
@@ -10,10 +9,10 @@ interface ExplorerProps {
         link?: string;
         tech: string;
     }) => void;
+
 }
 
 const ExplorerComponent: React.FC<ExplorerProps> = ({ onProjectClick }) => {
-
     const about = {
         name: "About",
         id: 5,
@@ -21,14 +20,16 @@ const ExplorerComponent: React.FC<ExplorerProps> = ({ onProjectClick }) => {
         img: "/assets/vsc3.png",
         link: "https://github.com/durngyn/my_portfolio",
         tech: "Vite, React TypeScript, HTML, & CSS"
-    }
+    };
 
     return (
         <About
             key={about.id}
             project={about}
-            onProject={onProjectClick} />
+            onProject={onProjectClick}
+
+        />
     );
 };
 
-export default ExplorerComponent
+export default ExplorerComponent;
