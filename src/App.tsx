@@ -16,7 +16,7 @@ import TabsComponent from "./components/TabsComponent";
 import Socials from "./components/Socials";
 
 import PortfolioComponent from "./components/PortfolioComponent";
-import AboutComponent from "./components/AboutComponent";
+// import AboutComponent from "./components/AboutComponent";
 import About from "./components/About";
 
 
@@ -46,7 +46,7 @@ export default function Home() {
     {
       name: "Portfolio",
       id: 1,
-      description: "SyncZone is a cross-platform mobile messaging application built using React Native for the frontend and Supabase for backend services. The app focuses on facilitating seamless communication across time zones through real-time chat functionality enhanced with Hume AI emotion detection technology. Key features include a dynamic calendar interface for event scheduling, location-based weather updates, and comprehensive user authentication via email/password and social login options. The technical stack incorporates PostgreSQL for efficient data handling, while integrations with GeoNames and Weather APIs provide additional context-aware functionality to enhance the overall user experience.",
+      description: "Created a portfolio to resemble the Visual Studio Code IDE, my go-to tool I use for the majority of my projects. Mimics the athetics of VSC while having straightfoward UI to emphasize the functionality of my built portfolio site. This projects uses the frontend tool, Vite, while using Typescript React as my framework. I gained handon experience with Typescript, sicne previously, JS was my go-to for web development.",
       img: "/assets/port.png",
       tech: "Vite, React TypeScript, HTML, & CSS"
     }
