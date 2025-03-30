@@ -56,7 +56,7 @@ const ExplorerComponent: React.FC<ExplorerProps> = ({ onProjectClick }) => {
     const resume = {
         name: "About",
         id: 0,
-        description: "Hi, Im Darren Nguyen! I'm a recent graduate from California State Long Beach with a Bachelors degree in Comp Sci.",
+        description: "Hi, Im Darren Nguyen! I'm a recent graduate from California State University of Long Beach with a Bachelors degree in Comp Sci. I created this Vscode inspired protfolio to etend my passion and education for web development! ",
         img: "assets/blank.png",
         // link: "df",
         tech: ""
@@ -65,7 +65,7 @@ const ExplorerComponent: React.FC<ExplorerProps> = ({ onProjectClick }) => {
     return (
         <div className={styles.leftBodyExplorer}>
 
-            <details className={styles.drop}>
+            <details open className={styles.drop}>
                 <summary className={styles.dropParent}>
                     <VscChevronRight className={styles.arrow} />
                     ABOUT
@@ -76,7 +76,7 @@ const ExplorerComponent: React.FC<ExplorerProps> = ({ onProjectClick }) => {
                     onProject={onProjectClick} />
             </details>
 
-            <details className={styles.drop}>
+            <details open className={styles.drop}>
                 <summary className={styles.dropParent} >
                     <VscChevronRight className={styles.arrow} />
                     MY_PROJECTS

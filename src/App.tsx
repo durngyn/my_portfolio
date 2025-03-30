@@ -38,7 +38,7 @@ export default function Home() {
     {
       name: "About",
       id: 0,
-      description: "Hi, Im Darren Nguyen! I'm a recent graduate from California State Long Beach with a Bachelors degree in Comp Sci.",
+      description: "Hi, Im Darren Nguyen! I'm a recent graduate from California State University of Long Beach with a Bachelors degree in Comp Sci. I created this Vscode inspired protfolio to etend my passion and education for web development! ",
       img: "assets/blank.png",
       // link: "df",
       tech: ""
@@ -145,9 +145,9 @@ export default function Home() {
               </button>
               <div className={styles.dc}>
                 <Socials name={"Mint Grey"} tag={"Current"} />
-                <Socials name={"Vscode"} tag={"In Progress!"} />
+                <Socials name={"VSC Black"} tag={"In Progress!"} />
                 <hr className={styles.divider} />
-                <Socials name={"Pink n White"} tag={"In Progress!"} />
+                <Socials name={"Blue Light"} tag={"In Progress!"} />
 
               </div>
             </div>
