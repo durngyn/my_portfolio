@@ -113,7 +113,7 @@ export default function Home() {
     }
   }, [selectedProject]);
 
-  const [isCode, setIsCode] = useState(true
+  const [isCode] = useState(true
   );
 
 
