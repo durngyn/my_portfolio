@@ -44,10 +44,10 @@ const Project: React.FC<ProjectProps> = ({ project = defaultProject, onProject =
         onProject(project);
 
         addTab({
-            id: `${project.id}-tsx`,
-            label: `${project.name}.tsx`,
+            id: `${project.id}-pdf`,
+            label: `${project.name}.pdf`,
             projectData: project,
-            type: 'tsx',
+            type: 'pdf',
             test: () => {
                 onProject(project);
             }

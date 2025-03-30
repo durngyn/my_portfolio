@@ -22,48 +22,59 @@ const ExplorerComponent: React.FC<ExplorerProps> = ({ onProjectClick }) => {
         {
             name: "Portfolio",
             id: 1,
-            description: "Created a portfolio to resemble the Visual Studio Code IDE, my go-to tool I use for the majority of my projects. Mimics the athetics of VSC while having straightfoward UI to emphasize the functionality of my built portfolio site. This projects uses the frontend tool, Vite, while using Typescript React as my framework. I gained handon experience with Typescript, sicne previously, JS was my go-to for web development.",
+            description: "I created a portfolio that resembles the Visual Studio Code, my go-to code editor, that I use for the majority of my projects. Mimics the aesthetics of VSC while having a straightforward UI/UX to emphasize the functionality of my portfolio site. This project uses the frontend tool, Vite, while using React TypeScript as my framework. I developed skills for utilizing Typescript with this project since previously I exclusively used JavaScript.",
             img: "/assets/vsc3.png",
             link: "https://github.com/durngyn/my_portfolio",
-            tech: "Vite, React TypeScript, HTML, & CSS"
+            tech: "Vite, React TypeScript"
         },
         {
             name: "Synczone",
             id: 2,
             description: "SyncZone is a cross-platform mobile messaging application built using React Native for the frontend and Supabase for backend services. The app focuses on facilitating seamless communication across time zones through real-time chat functionality enhanced with Hume AI emotion detection technology. Key features include a dynamic calendar interface for event scheduling, location-based weather updates, and comprehensive user authentication via email/password and social login options. The technical stack incorporates PostgreSQL for efficient data handling, while integrations with GeoNames and Weather APIs provide additional context-aware functionality to enhance the overall user experience.",
-            img: "/assets/sz.png",
+            img: "/assets/sz2.png",
             link: "https://github.com/Boroshilov03/SyncZone",
-            tech: "Native React, Supabase, Huma AI, HTML & CSS"
+            tech: "Native React, Supabase, Hume AI"
         },
         {
-            name: "Spotify",
+            name: "Graphify",
             id: 3,
-            description: "SyncZone is a cross-platform mobile messaging application built using React Native for the frontend and Supabase for backend services. The app focuses on facilitating seamless communication across time zones through real-time chat functionality enhanced with Hume AI emotion detection technology. Key features include a dynamic calendar interface for event scheduling, location-based weather updates, and comprehensive user authentication via email/password and social login options. The technical stack incorporates PostgreSQL for efficient data handling, while integrations with GeoNames and Weather APIs provide additional context-aware functionality to enhance the overall user experience.",
+            description: "Graphify enables users to visualize data from their Spotify playlists, displaying genre distributions and offering real-time interaction with others on the site. By using the Spotify Web API, users can log in, select playlists, and view detailed genre analysis. The platform integrates WebSockets for live interaction and uses MongoDB for data storage. The project also aims to provide Spotify playback capabilities for premium users, with future plans to enhance UI, manage access tokens, and improve overall user experience.",
             img: "/assets/spot.png",
             link: "https://github.com/bchh325/spotify-distribution",
-            tech: "React TypeScript, HTML, and CSS"
+            tech: "ReactJS, Node.js, Spotify API/SDK, MongoDB"
         },
         {
-            name: "Filler",
+            name: "Weather App",
             id: 4,
-            description: "SyncZone is a cross-platform mobile messaging application built using React Native for the frontend and Supabase for backend services. The app focuses on facilitating seamless communication across time zones through real-time chat functionality enhanced with Hume AI emotion detection technology. Key features include a dynamic calendar interface for event scheduling, location-based weather updates, and comprehensive user authentication via email/password and social login options. The technical stack incorporates PostgreSQL for efficient data handling, while integrations with GeoNames and Weather APIs provide additional context-aware functionality to enhance the overall user experience.",
-            img: "/assets/winston.jpg",
-            link: "f",
-            tech: "React TypeScript, HTML, and CSS"
+            description: "This weather App gives the user the temperature and weather conditions. This quick, small project served as a way to get introduced to utilizing API's in my projects. Also, an introduction to using React JavaScript.",
+            img: "/assets/weather.png",
+            link: "https://github.com/durngyn/Weather-App",
+            tech: "AccuWeather API, ReactJS, HTML, and CSS"
         },
     ]
 
     const resume = {
-        name: "Resume(2025)",
+        name: "About",
         id: 0,
-        description: "It is this site!!!",
-        img: "images/vsc.png",
+        description: "Hi, Im Darren Nguyen! I'm a recent graduate from California State Long Beach with a Bachelors degree in Comp Sci.",
+        img: "assets/blank.png",
         // link: "df",
-        tech: "React TypeScript, HTML, and CSS"
+        tech: ""
     }
 
     return (
         <div className={styles.leftBodyExplorer}>
+
+            <details className={styles.drop}>
+                <summary className={styles.dropParent}>
+                    <VscChevronRight className={styles.arrow} />
+                    ABOUT
+                </summary>
+                <Resume
+                    key={resume.id}
+                    project={resume}
+                    onProject={onProjectClick} />
+            </details>
 
             <details className={styles.drop}>
                 <summary className={styles.dropParent} >
@@ -78,16 +89,7 @@ const ExplorerComponent: React.FC<ExplorerProps> = ({ onProjectClick }) => {
                     />
                 ))}
             </details>
-            <details className={styles.drop}>
-                <summary className={styles.dropParent}>
-                    <VscChevronRight className={styles.arrow} />
-                    RESUME
-                </summary>
-                <Resume
-                    key={resume.id}
-                    project={resume}
-                    onProject={onProjectClick} />
-            </details>
+
         </div>
     );
 };

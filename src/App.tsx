@@ -16,8 +16,8 @@ import TabsComponent from "./components/TabsComponent";
 import Socials from "./components/Socials";
 
 import PortfolioComponent from "./components/PortfolioComponent";
-// import AboutComponent from "./components/AboutComponent";
-import About from "./components/About";
+
+
 
 
 export default function Home() {
@@ -34,21 +34,14 @@ export default function Home() {
     name: "About",
     tech: "I'm Darren and this is my Portfolio Site!",
   })
-  const about = {
-    name: "About",
-    id: 5,
-    description: "SyncZone is a cross-platform mobile messaging application built using React Native for the frontend and Supabase for backend services. The app focuses on facilitating seamless communication across time zones through real-time chat functionality enhanced with Hume AI emotion detection technology. Key features include a dynamic calendar interface for event scheduling, location-based weather updates, and comprehensive user authentication via email/password and social login options. The technical stack incorporates PostgreSQL for efficient data handling, while integrations with GeoNames and Weather APIs provide additional context-aware functionality to enhance the overall user experience.",
-    img: "/assets/vsc3.png",
-    link: "https://github.com/durngyn/my_portfolio",
-    tech: "Vite, React TypeScript, HTML, & CSS"
-  };
   const [selectedProject, setSelectedProject] = useState<{ name: string; id: number; description: string; img: string; tech: string; }>(
     {
-      name: "Portfolio",
-      id: 1,
-      description: "Created a portfolio to resemble the Visual Studio Code IDE, my go-to tool I use for the majority of my projects. Mimics the athetics of VSC while having straightfoward UI to emphasize the functionality of my built portfolio site. This projects uses the frontend tool, Vite, while using Typescript React as my framework. I gained handon experience with Typescript, sicne previously, JS was my go-to for web development.",
-      img: "/assets/port.png",
-      tech: "Vite, React TypeScript, HTML, & CSS"
+      name: "About",
+      id: 0,
+      description: "Hi, Im Darren Nguyen! I'm a recent graduate from California State Long Beach with a Bachelors degree in Comp Sci.",
+      img: "assets/blank.png",
+      // link: "df",
+      tech: ""
     }
   );
 
@@ -137,7 +130,7 @@ export default function Home() {
             <PortfolioComponent onProjectClick={setSelectedProject} />
             <div className={styles.dropdown}>
               <button className={styles.navButton}>
-                Socials
+                Contact
               </button>
               <div className={styles.dc}>
                 <Socials name={"Github"} link={"https://github.com/durngyn"} tag={"durngyn"} />
@@ -149,8 +142,20 @@ export default function Home() {
                 <Socials name={"Spotify"} link={"https://open.spotify.com/user/yqpv3jwmro89ll637qpc9ad4w?si=0f9e14c0d67c477a/"} tag={"daren"} />
               </div>
             </div>
+            <div className={styles.dropdown}>
+              <button className={styles.navButton}>
+                Themes
+              </button>
+              <div className={styles.dc}>
+                <Socials name={"Mint Grey"} tag={"Current"} />
+                <Socials name={"Vscode"} tag={"In Progress!"} />
+                <hr className={styles.divider} />
+                <Socials name={"Pink n White"} tag={"In Progress!"} />
 
-            <About key={selectedProject.id} onProject={setSelectedProject} project={about} toggleSide={toggleCode} />
+              </div>
+            </div>
+
+            {/* <About key={selectedProject.id} onProject={setSelectedProject} project={about} toggleSide={toggleCode} /> */}
           </div>
           <div className={styles.midNav}>
             <div className={styles.textBox}>
@@ -173,16 +178,6 @@ export default function Home() {
                 onMouseEnter={(e) => (e.currentTarget.style.color = "rgb(215 218 224)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "grey")} />
             </button>
-            {/* <button onClick={() => setContent({
-              window: <div className={styles.leftBodyMail}>
-
-              </div>,
-              text: "EMAIL"
-            })}>
-              <LuMailPlus style={{ color: 'rgb(114 118 126)', fontSize: '40px' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "rgb(215 218 224)")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "grey")} />
-            </button> */}
             <a href="https://www.linkedin.com/in/darren-n-in/" target="_blank" style={{ marginTop: "15px", marginBottom: "15px", }}>
               <FaLinkedin style={{ color: 'rgb(114 118 126)', fontSize: '40px' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "rgb(215 218 224)")}
@@ -224,7 +219,7 @@ export default function Home() {
                       </code>
                     </div>
                     <div className={styles.bottomCode}>
-                      <img src={window.img} style={{ width: '700px', height: '400px' }} />
+                      <img src={window.img} style={{ width: '600px', maxHeight: '800px' }} />
                     </div>
                   </div>
                 ) : (
