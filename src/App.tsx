@@ -116,9 +116,6 @@ export default function Home() {
   const [isCode, setIsCode] = useState(true
   );
 
-  const toggleCode = () => {
-    setIsCode(!isCode);
-  };
 
   return (
     <TabsProvider>
