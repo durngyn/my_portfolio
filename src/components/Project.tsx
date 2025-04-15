@@ -84,8 +84,7 @@ const Project: React.FC<ProjectProps> = ({ project, onProject }) => {
                 <div className={styles.dropSpacingTwo}></div>
                 <summary className={styles.dropContent}>
                     <FaGithubAlt className={`${styles.info} ${activeTabId === `${project.id}-md` ? styles.activeIcon : ''}`} />
-                    <a
-                    >
+                    <a>
                         Github.txt
                     </a>
                 </summary>

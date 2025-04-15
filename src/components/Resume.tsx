@@ -64,6 +64,7 @@ const Project: React.FC<ProjectProps> = ({ project, onProject }) => {
                     <span className={activeTabId === `${project.id}-pdf` ? styles.activeText : ''}>{project.name}.pdf</span>
                 </summary>
             </summary>
+
         </details>
     );
 };

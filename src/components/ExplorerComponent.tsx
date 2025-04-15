@@ -2,9 +2,27 @@
 import styles from "./ExplorerComponent.module.css"
 
 import { VscChevronRight } from "react-icons/vsc";
+import { FaFolder } from "react-icons/fa";
 
 import Project from "./Project";
 import Resume from "./Resume";
+import Tech from "./Tech";
+
+import {
+    SiPython,
+    SiCplusplus,
+    SiHaskell,
+    SiHtml5,
+    SiCss3,
+    SiJavascript,
+    SiReact,
+    SiTypescript,
+    SiMongodb,
+    SiFirebase,
+    SiSupabase,
+} from 'react-icons/si';
+
+import { FaJava, FaDatabase } from 'react-icons/fa';
 
 interface ExplorerProps {
     onProjectClick: (projectId: {
@@ -74,6 +92,58 @@ const ExplorerComponent: React.FC<ExplorerProps> = ({ onProjectClick }) => {
                     key={resume.id}
                     project={resume}
                     onProject={onProjectClick} />
+                <summary>
+                    <details className={styles.dropTwo}>
+                        <summary className={styles.dropChild}>
+                            <div className={styles.dropSpacing} ></div>
+                            <VscChevronRight className={styles.arrowTwo} />
+                            <FaFolder className={styles.folder} />
+                            Technologies/Skills
+                        </summary>
+
+                        <Tech
+                            name="HTML"
+                            img={<SiHtml5 className={styles.react} style={{ color: "#f24405" }} />} />
+                        <Tech
+                            name="CSS"
+                            img={<SiCss3 className={styles.react} style={{ color: "#328adb" }} />} />
+                        <Tech
+                            name="JavaScript"
+                            img={<SiJavascript className={styles.react} style={{ color: "#dbca32" }} />} />
+                        <Tech
+                            name="TypeScript"
+                            img={<SiTypescript className={styles.react} style={{ color: "#328adb" }} />} />
+                        <Tech
+                            name="React (JSX/TSX)"
+                            img={<SiReact className={styles.react} style={{ color: "#328adb" }} />} />
+                        <Tech
+                            name="SQL"
+                            img={<FaDatabase className={styles.react} style={{ color: "#d97511" }} />} />
+                        <Tech
+                            name="MongoDB"
+                            img={<SiMongodb className={styles.react} style={{ color: "#11d968" }} />} />
+                        <Tech
+                            name="Supabase"
+                            img={<SiSupabase className={styles.react} style={{ color: "#11d993" }} />} />
+                        <Tech
+                            name="Firebase"
+                            img={<SiFirebase className={styles.react} style={{ color: "#d98911" }} />} />
+
+                        <Tech
+                            name="Python"
+                            img={<SiPython className={styles.react} style={{ color: "#0ca63a" }} />} />
+                        <Tech
+                            name="Java"
+                            img={<FaJava className={styles.react} style={{ color: "#d93d11" }} />} />
+                        <Tech
+                            name="C++"
+                            img={<SiCplusplus className={styles.react} style={{ color: "#0c4ea6" }} />} />
+                        <Tech
+                            name="Haskall"
+                            img={<SiHaskell className={styles.react} style={{ color: "#433159" }} />} />
+                    </details>
+                </summary>
+
             </details>
 
             <details open className={styles.drop}>

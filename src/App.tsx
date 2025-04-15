@@ -22,7 +22,7 @@ import PortfolioComponent from "./components/PortfolioComponent";
 
 export default function Home() {
   const textContainerRef = useRef<HTMLDivElement>(null);
-  const codeContainerRef = useRef<HTMLDivElement>(null);
+  // const codeContainerRef = useRef<HTMLDivElement>(null);
   const [side, setSide] = useState(true);
 
   const toggleSide = () => {
@@ -38,7 +38,7 @@ export default function Home() {
     {
       name: "About",
       id: 0,
-      description: "Hi, Im Darren Nguyen! I'm a recent graduate from California State University of Long Beach with a Bachelors degree in Comp Sci. I created this Vscode inspired protfolio to etend my passion and education for web development! ",
+      description: "I created a portfolio that resembles the Visual Studio Code, my go-to code editor, that I use for the majority of my projects. Mimics the aesthetics of VSC while having a straightforward UI/UX to emphasize the functionality of my portfolio site. This project uses the frontend tool, Vite, while using React TypeScript as my framework. I developed skills for utilizing Typescript with this project since previously I exclusively used JavaScript.",
       img: "assets/blank.png",
       // link: "df",
       tech: ""
@@ -48,7 +48,7 @@ export default function Home() {
   useEffect(() => {
     if (textContainerRef.current) {
 
-      const typewriter = new Typewriter(textContainerRef.current, { loop: true, typingSpeed: 50 });
+      const typewriter = new Typewriter(textContainerRef.current, { loop: false, typingSpeed: 50 });
 
       typewriter
         .deleteAll()
@@ -75,7 +75,7 @@ export default function Home() {
         .pauseFor(300)
         .typeString(", Vite")
         .pauseFor(300)
-        .typeString(", & React TypeScript (TSX)")
+        .typeString(", & React TypeScript")
         .pauseFor(3000)
         .deleteChars(15)
         .pauseFor(300)
@@ -86,22 +86,22 @@ export default function Home() {
     }
   }, []);
 
-  useEffect(() => {
-    if (codeContainerRef.current) {
-      codeContainerRef.current.innerHTML = "";
+  // useEffect(() => {
+  //   if (codeContainerRef.current) {
+  //     codeContainerRef.current.innerHTML = "";
 
-      if (selectedProject?.description) {
-        const typewriter = new Typewriter(codeContainerRef.current, {
-          loop: false,
-          typingSpeed: 1,
-        });
-        typewriter
-          .typeString(selectedProject.description)
-          .pauseFor(5000)
-          .start();
-      }
-    }
-  }, [selectedProject]);
+  //     if (selectedProject?.description) {
+  //       const typewriter = new Typewriter(codeContainerRef.current, {
+  //         loop: false,
+  //         typingSpeed: 1,
+  //       });
+  //       typewriter
+  //         .typeString(selectedProject.description)
+  //         .pauseFor(5000)
+  //         .start();
+  //     }
+  //   }
+  // }, [selectedProject]);
 
   useEffect(() => {
     if (selectedProject) {
@@ -212,7 +212,7 @@ export default function Home() {
                       </div>
                       <hr className={styles.divider} />
                       <code className={styles.desc}>
-                        <div ref={codeContainerRef}></div>
+                        <div>{selectedProject.description}</div>
                       </code>
                     </div>
                     <div className={styles.bottomCode}>

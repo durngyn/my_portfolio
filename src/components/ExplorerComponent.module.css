@@ -23,6 +23,7 @@
 .dropParent {
     display: flex;
     height: 40px;
+    min-height: 40px;
     justify-items: center;
     align-items: center;
     font-family: "Roboto", serif;
@@ -45,6 +46,7 @@
 }
 
 .dropSpacing {
+    display: 'flex';
     border-right: 1px solid transparent;
     transition: border 0.2s ease-in-out;
     width: 20px;
@@ -58,6 +60,28 @@
     width: 300px;
     max-width: 300px;
     min-width: 300px;
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+.leftBodyExplorer::-webkit-scrollbar {
+    width: 22px;
+    border: 1px solid rgba(57, 65, 78);
+    scrollbar-gutter: stable overlay;
+}
+
+.leftBodyExplorer::-webkit-scrollbar-track {
+    background-color: rgba(57, 65, 78, 0);
+}
+
+.leftBodyExplorer::-webkit-scrollbar-thumb {
+    background-color: rgba(61, 68, 80, 0.671);
+    transition: background-color 0.3s ease;
+}
+
+.leftBodyExplorer::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(61 68 80);
+
 }
 
 .leftBodyExplorer:hover .dropSpacing {
@@ -104,7 +128,7 @@
 }
 
 .arrowTwo {
-    margin-left: 10px;
+    margin-left: 14px;
 }
 
 .drop[open] .arrow,
