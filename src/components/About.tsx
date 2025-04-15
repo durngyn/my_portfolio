@@ -23,7 +23,7 @@ interface ProjectProps {
 const defaultProject = {
     name: "Portfolio",
     id: 1,
-    description: "I created a portfolio that resembles the Visual Studio Code, my go-to code editor, that I use for the majority of my projects. Mimics the aesthetics of VSC while having a straightforward UI/UX to emphasize the functionality of my portfolio site. This project uses the frontend tool, Vite, while using React TypeScript as my framework. I developed skills for utilizing Typescript with this project since previously I exclusively used JavaScript.",
+    description: "Hi, Im Darren Nguyen! I'm a recent graduate from California State Long Beach with a Bachelors degree in Comp Sci.",
     img: "/assets/port.png",
     tech: "React TypeScript, HTML, and CSS"
 };

@@ -38,7 +38,7 @@ export default function Home() {
     {
       name: "About",
       id: 0,
-      description: "I created a portfolio that resembles the Visual Studio Code, my go-to code editor, that I use for the majority of my projects. Mimics the aesthetics of VSC while having a straightforward UI/UX to emphasize the functionality of my portfolio site. This project uses the frontend tool, Vite, while using React TypeScript as my framework. I developed skills for utilizing Typescript with this project since previously I exclusively used JavaScript.",
+      description: "Hi, Im Darren Nguyen! I'm a recent graduate from California State Long Beach with a Bachelors degree in Comp Sci.",
       img: "assets/blank.png",
       // link: "df",
       tech: ""
@@ -48,40 +48,40 @@ export default function Home() {
   useEffect(() => {
     if (textContainerRef.current) {
 
-      const typewriter = new Typewriter(textContainerRef.current, { loop: false, typingSpeed: 50 });
+      const typewriter = new Typewriter(textContainerRef.current, { loop: false, typingSpeed: 40 });
 
       typewriter
         .deleteAll()
         .typeString("Hello, I'm Darren Nguyen")
-        .pauseFor(200)
+        .pauseFor(100)
         .typeString(" :")
-        .pauseFor(230)
+        .pauseFor(130)
         .typeString("^")
-        .pauseFor(280)
+        .pauseFor(180)
         .typeString(")")
-        .pauseFor(3000)
+        .pauseFor(1500)
         .deleteChars(7)
-        .pauseFor(230)
+        .pauseFor(130)
         .deleteChars(24)
         .typeString("This is my Portfolio Site!") //26
-        .pauseFor(3000)
+        .pauseFor(1500)
         .deleteChars(18)
         .typeString(" site, I used =>")
-        .pauseFor(1500)
+        .pauseFor(800)
         .deleteAll()
         .typeString("HTML")
-        .pauseFor(300)
+        .pauseFor(150)
         .typeString(", CSS")
-        .pauseFor(300)
+        .pauseFor(150)
         .typeString(", Vite")
-        .pauseFor(300)
+        .pauseFor(150)
         .typeString(", & React TypeScript")
-        .pauseFor(3000)
+        .pauseFor(1500)
         .deleteChars(15)
-        .pauseFor(300)
+        .pauseFor(150)
         .deleteAll()
         .typeString("Darren Nguyen's Portfolio")
-        .pauseFor(5000)
+        .pauseFor(2500)
         .start();
     }
   }, []);
