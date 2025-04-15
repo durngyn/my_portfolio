@@ -74,7 +74,7 @@ const ExplorerComponent: React.FC<ExplorerProps> = ({ onProjectClick }) => {
     const resume = {
         name: "About",
         id: 0,
-        description: "Hi, Im Darren Nguyen! I'm a recent graduate from California State University of Long Beach with a Bachelors degree in Comp Sci. I created this Vscode inspired protfolio to etend my passion and education for web development! ",
+        description: "I created a portfolio that resembles the Visual Studio Code, my go-to code editor, that I use for the majority of my projects. Mimics the aesthetics of VSC while having a straightforward UI/UX to emphasize the functionality of my portfolio site. This project uses the frontend tool, Vite, while using React TypeScript as my framework. I developed skills for utilizing Typescript with this project since previously I exclusively used JavaScript.",
         img: "assets/blank.png",
         // link: "df",
         tech: ""
