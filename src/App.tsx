@@ -22,7 +22,6 @@ import PortfolioComponent from "./components/PortfolioComponent";
 
 export default function Home() {
   const textContainerRef = useRef<HTMLDivElement>(null);
-  // const codeContainerRef = useRef<HTMLDivElement>(null);
   const [side, setSide] = useState(true);
 
   const toggleSide = () => {
@@ -40,7 +39,6 @@ export default function Home() {
       id: 0,
       description: "Hi, Im Darren Nguyen! I'm a recent graduate from California State Long Beach with a Bachelors degree in Comp Sci.",
       img: "assets/blank.png",
-      // link: "df",
       tech: ""
     }
   );
